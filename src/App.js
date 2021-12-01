@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import * as ICons from '@mui/icons-material'
+import {BrowserRouter as Router, Outlet} from 'react-router-dom'
+import RouteConfig from './routeconfig';
+import { Protector } from './helpers';
+import NavBar from './nav';
+
+export const baseUrl = process.env.REACT_APP_API_BASE_URL
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Protector>
+      
+      <Router>
+        <NavBar/>
+        <div style={{marginTop:"100px"}}>
+          <RouteConfig /> 
+        </div>
+      </Router>
+      <Outlet />
+    </Protector>
   );
 }
 
 export default App;
+
+
