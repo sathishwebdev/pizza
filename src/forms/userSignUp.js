@@ -45,7 +45,7 @@ const navigate = useNavigate()
   const FormSubmission = async (values, { setSubmitting, resetForm }) => {
       //  signUp(cb, userData)
       auth.signUp(()=>{
-      navigate('/login')
+      navigate('/profile')
       }, values) 
     setSubmitting(false);
     resetForm();

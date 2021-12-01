@@ -31,11 +31,34 @@ function NavBar() {
             onClick={()=>navigator("/login")} > Login <Icons.Login />
     </mui.Button>
          : 
-            <mui.Button
+         <>
+
+            <mui.IconButton
             sx={{marginLeft:"auto"}}
             color="inherit"
-            onClick={()=>navigator(`/orders/${auth.user._id}`)} ><Icons.ShoppingBasket /> Orders
-    </mui.Button>}
+            onClick={()=>navigator(`/orders`)} >
+                <mui.Badge 
+                    badgeContent={3} 
+                    color="primary"
+                    anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}>
+                    <Icons.ShoppingBasket /> 
+                </mui.Badge>
+            </mui.IconButton>
+
+            <mui.IconButton
+            sx={{marginRight:"1px"}}
+            color="inherit"
+            onClick={()=>navigator(`/profile`)} ><Icons.Person />
+            </mui.IconButton>
+
+
+    
+    </>
+    
+    }
     </mui.Toolbar>
     </mui.AppBar>
         </Box>

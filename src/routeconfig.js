@@ -6,6 +6,7 @@ import Orders from './orders';
 import Recipe from './Recipe'
 import UserLoginForm from './forms/userLogin';
 import UserSignUp from './forms/userSignUp';
+import Profile from './profile';
 
 function RouteConfig() {
     return (
@@ -19,13 +20,21 @@ function RouteConfig() {
 
               <Route 
                 exact
-                path="/orders/:id"
+                path="/orders"
                 element = {
                   <PrivateRoute>
                     <Orders />
                   </PrivateRoute>
                 } />
 
+                <Route 
+                exact
+                path="/profile"
+                element = {
+                  <PrivateRoute>
+                    <Profile />
+                  </PrivateRoute>
+                } />
                 
 
             <Route path="/*" element = {<div className="App"><h2>404</h2></div>} />
@@ -40,5 +49,5 @@ function PrivateRoute({children, ...rest}) {
     let auth = useAuth();
     let location = useLocation();
 
-    return !auth.user ? <Navigate to="/" state={{ from: location }} /> : children    
+    return !auth.user ? <Navigate to="/login" state={{ from: location }} /> : children    
   }
