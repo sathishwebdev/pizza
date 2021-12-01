@@ -43,8 +43,6 @@ const navigate = useNavigate()
 
   // form handlers
   const FormSubmission = async (values, { setSubmitting, resetForm }) => {
-    console.log(values);
-      alert("successfully login")
       //  signUp(cb, userData)
       auth.signUp(()=>{
       navigate('/login')

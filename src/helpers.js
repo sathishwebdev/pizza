@@ -23,6 +23,7 @@ import { baseUrl } from './App'
                 method:"POST",
                 body: JSON.stringify(values)
             })
+            cb()
         }
 
         return{
