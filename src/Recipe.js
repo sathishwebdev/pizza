@@ -41,7 +41,19 @@ import { useAuth } from './helpers'
                 {storeData.map(({_id,name,imageUrl, description, category, price})=>(
                     RecipieCard({_id, imageUrl, name, category, description, Button, auth, price}, navigate)
                 ))}
+                
                 </div>}
+                <div className="placeOrder" >
+        <Button
+            sx={{
+                width:"100%",
+                height: "60px",
+                margin: "0px"
+            }}
+        >
+            <Icon.LocalPizzaRounded/>  Make a Own Pizza
+        </Button>
+    </div>
         </div>
     )
 }
@@ -69,7 +81,7 @@ export function RecipieCard({_id, imageUrl, name, category, description, Button,
             <div>
                 <Button
                     onClick={() => {
-                        !auth.user ? navigate("/login") : navigate(`/food/${_id}`)
+                        !auth.user ? navigate("/login") : navigate(`/food/${name}`)
                     } }
                 >
                     <Icon.CurrencyRupeeRounded />{price.reg}

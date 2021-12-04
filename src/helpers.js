@@ -59,6 +59,19 @@ import { baseUrl } from './App'
 
     return responce;
   };
+
+ const addOrder = async (itemId, key) =>{
+    let fetchingUrl = await fetch(`${baseUrl}/order/`, {
+        method: "POST",
+        headers: { 'auth-token': key },
+      });
+      let responce = await fetchingUrl.json();
+  
+      return responce;
+ }
+
+
+
   export {
         useAuth,
         Protector,

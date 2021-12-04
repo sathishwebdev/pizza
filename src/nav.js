@@ -38,7 +38,7 @@ function NavBar() {
             color="inherit"
             onClick={()=>navigator(`/orders`)} >
                 <mui.Badge 
-                    badgeContent={3} 
+                    badgeContent={auth.user.order? auth.user.order.length : 0 } 
                     color="primary"
                     anchorOrigin={{
                     vertical: 'top',

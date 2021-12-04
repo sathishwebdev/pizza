@@ -7,6 +7,7 @@ import Recipe from './Recipe'
 import UserLoginForm from './forms/userLogin';
 import UserSignUp from './forms/userSignUp';
 import Profile from './profile';
+import FoodDetail from './foodDetail';
 
 function RouteConfig() {
     return (
@@ -36,6 +37,14 @@ function RouteConfig() {
                   </PrivateRoute>
                 } />
                 
+                <Route 
+                exact
+                path="/food/:itemName"
+                element = {
+                  <PrivateRoute>
+                    <FoodDetail />
+                  </PrivateRoute>
+                } />
 
             <Route path="/*" element = {<div className="App"><h2>404</h2></div>} />
 

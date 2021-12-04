@@ -55,7 +55,8 @@ const navigate = useNavigate()
       //  signin(cb, userData)
       auth.signIn(()=>{
       navigate("/")
-      }, data) 
+      }, {...data, key}) 
+      console.log({...data, key})
     }
     setSubmitting(false);
     resetForm();
