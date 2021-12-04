@@ -39,33 +39,7 @@ import { useAuth } from './helpers'
         <div className="App">
             {!storeData? <p>Loading...</p>: <div className="recipes">
                 {storeData.map(({_id,name,imageUrl, description, category, price})=>(
-                    <div key={_id} className="container" >
-                        <div className="imgCon" >
-                            <img src={imageUrl} alt={name} title={name} />
-                        </div>
-                        <div className="tag">
-                            <p>{category}</p>
-                        </div>
-                        <div className="recipe-name-cont">
-                            <div style={{maxWidth:"200px"}}>
-                                <p style={{textTransform:"uppercase", fontSize:"medium"}}>{name}</p>
-                                <p style={{fontSize:"small"}}>{description}</p>
-                            </div>
-                            <div style={{maxWidth:"100px"}} >
-                                <div><p style={{fontSize:"10px"}} >from *</p>
-                                <p></p> </div>
-                            </div>
-                            <div>
-                                <Button
-                                    onClick={()=>{
-                                        !auth.user? navigate("/login") : navigate(`/food/${_id}`)
-                                    }}
-                                >
-                                    <Icon.CurrencyRupeeRounded/>{price.reg}
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
+                    RecipieCard({_id, imageUrl, name, category, description, Button, auth, price}, navigate)
                 ))}
                 </div>}
         </div>
@@ -73,3 +47,35 @@ import { useAuth } from './helpers'
 }
 
 export default Recipie
+
+export function RecipieCard({_id, imageUrl, name, category, description, Button, auth, price}, navigate) {
+    
+    return <div key={_id} className="container">
+        <div className="imgCon">
+            <img src={imageUrl} alt={name} title={name} />
+        </div>
+        <div className="tag">
+            <p>{category}</p>
+        </div>
+        <div className="recipe-name-cont">
+            <div style={{ maxWidth: "200px" }}>
+                <p style={{ textTransform: "uppercase", fontSize: "medium" }}>{name}</p>
+                <p style={{ fontSize: "small" }}>{description}</p>
+            </div>
+            <div style={{ maxWidth: "100px" }}>
+                <div><p style={{ fontSize: "10px" }}>from *</p>
+                    <p></p> </div>
+            </div>
+            <div>
+                <Button
+                    onClick={() => {
+                        !auth.user ? navigate("/login") : navigate(`/food/${_id}`)
+                    } }
+                >
+                    <Icon.CurrencyRupeeRounded />{price.reg}
+                </Button>
+            </div>
+        </div>
+    </div>
+}
+
