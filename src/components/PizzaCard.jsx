@@ -57,7 +57,9 @@ export default function PizzaCard({ pizza }) {
       <div style={{
         height: "280px",
         width: "280px",
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginLeft:'auto',
+        marginRight:'auto'
       }} className="d-flex justify-content-center align-items-center" >
         <img
           src={pizza.image}
