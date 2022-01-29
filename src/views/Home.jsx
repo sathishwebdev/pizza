@@ -36,7 +36,7 @@ function Home() {
             <div className="row">
               {pizzas.map((pizza, ind) => (
                 <div className="col-md-6 col-lg-4 " key={ind}>
-                  <PizzaCard pizza={pizza} />;
+                  <PizzaCard pizza={pizza} />
                 </div>
               ))}
             </div>
