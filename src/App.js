@@ -1,30 +1,24 @@
-import './App.css';
-// import * as ICons from '@mui/icons-material'
-import {BrowserRouter as Router, Outlet} from 'react-router-dom'
-import RouteConfig from './routeconfig';
-import { Protector } from './helpers';
-import NavBar from './nav';
+import React from "react";
+import { BrowserRouter,  Navigate,  Route, Routes } from "react-router-dom";
 
-export const baseUrl = process.env.REACT_APP_API_BASE_URL
+import MainLayout from "./layouts/MainLayout";
+import { ScrollTop, CustomizedSnackbars } from "./containers";
+import { Login, Register, AdminPanel } from "./views";
 
-
-function App() {
-
-
+function App(props) {
   return (
-    <Protector>
-      
-      <Router>
-        <NavBar/>
-        <div style={{marginTop:"100px"}}>
-          <RouteConfig /> 
-        </div>
-      </Router>
-      <Outlet />
-    </Protector>
+    <BrowserRouter>
+      <ScrollTop />
+      <CustomizedSnackbars /> 
+      <Routes>
+        <Route path="/" exact element={<Navigate replace to="/home" />} />
+        <Route exact path="/login" element={<Login {...props} />} />
+        <Route exact path="/register" element={<Register {...props} />} />
+        <Route exact path="/admin/panel/*" element={<AdminPanel {...props} />} />
+        <Route path="*" element={<MainLayout {...props} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-

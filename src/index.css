@@ -1,17 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
 @font-face {
-  font-family: "hussor-bold";
-  src: url(./fonts/HussarBold.ttf);
-}
+  font-family: 'hussor-bold' ;
+  src: url("./assets/fonts/HussarBold.ttf");
+} 
 
 body {
   margin: 0;
-  font-family: 'hussor-bold';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  font-family: 'hussor-bold';
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.image-pizza {
+  height: 250px;
+  width: 250px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.cart-items-list {
+  width: 90%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.login {
+  background-image: url("./assets/bg1.svg");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  height: 100vh;
+  font-family: 'hussor-bold';
+}
+.register {
+  background-image: url("./assets/bg2.svg");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  height: 100vh;
+  font-family: 'hussor-bold';
+}
+
+.center-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'hussor-bold';
+}
+
+input:focus, select:focus{
+  outline: none;
+  box-shadow: none !important;
+  border: 1px solid;
+}
+
